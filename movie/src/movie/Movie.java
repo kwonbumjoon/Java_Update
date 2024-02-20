@@ -119,4 +119,36 @@ public class Movie {
 			e.printStackTrace();
 		}
 	}
+
+	public static Movie findAll(String movieID) {
+		
+		Movie movie = null;
+		BufferedReader bf = null;
+
+		try {
+			bf = new BufferedReader(new FileReader(file));
+			String line = null;
+
+			while ((line = bf.readLine()) != null) {
+				String[] temp = line.split(",");
+				if (movieID.equals(temp[0])) {
+					movie = new Movie(Long.parseLong(temp[0]), temp[1], temp[2]);
+					break;
+				}
+			}
+			bf.close();
+			return movie;
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return movie;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+
 }
