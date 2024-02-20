@@ -32,14 +32,11 @@ public class Seats {
 		for (int i = 0; i < MAX_ROW; i++) {
 			System.out.printf("%c ", 'A' + i);
 			for (int j = 0; j < MAX_COL; j++) {
-				map[i][j] = "O";
+				System.out.printf(" %s", map[i][j]);
 			}
+			System.out.println();
 		}
-		for (int i = 0; i < reservations.size(); i++) {
-			Reservation r = reservations.get(i);
-			String seatName = r.getSeatName();
-			mark(seatName);
-		}
+		System.out.println("1 2 3 4 5 6 7 8 9");
 	}
 
 	private void mark(String seatName) throws Exception {
