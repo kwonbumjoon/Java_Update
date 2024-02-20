@@ -10,8 +10,10 @@ import java.time.Instant;
 import java.util.ArrayList;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @AllArgsConstructor
+
 public class Movie {
 
 	private long id; // 영화 고유번호
@@ -149,6 +151,14 @@ public class Movie {
 	
 	public String getTitle() {
 		return title;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

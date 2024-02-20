@@ -11,7 +11,7 @@ public class Seats {
 
 	public Seats(ArrayList<Reservation> reservations) throws Exception {
 		for (int i = 0; i < MAX_ROW; i++) {
-			for (int j = 0; j < MAX_ROW; j++) {
+			for (int j = 0; j < MAX_COL; j++) {
 				map[i][j] = "0"; // 좌석 초기화
 			}
 		}
@@ -25,9 +25,9 @@ public class Seats {
 
 	public void show() { // 전체 좌석 현황
 
-		System.out.println("--------------------------------");
-		System.out.println("			S C R E E N			");
-		System.out.println("--------------------------------");
+		System.out.println("-------------------------------");
+		System.out.println("	  S C R E E N		");
+		System.out.println("-------------------------------");
 
 		for (int i = 0; i < MAX_ROW; i++) {
 			System.out.printf("%c ", 'A' + i);
@@ -36,10 +36,10 @@ public class Seats {
 			}
 			System.out.println();
 		}
-		System.out.println("1 2 3 4 5 6 7 8 9");
+		System.out.println("   1 2 3 4 5 6 7 8 9");
 	}
 
-	private void mark(String seatName) throws Exception {
+	public void mark(String seatName) throws Exception {
 
 		char[] temp = seatName.toCharArray();
 		int row = temp[0] - 'A'; // 행 인덱스 계산

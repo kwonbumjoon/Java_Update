@@ -6,8 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +32,21 @@ public class Reservation {
 //		this.movieTitle = movieTitle;
 //		this.SeatName = SeatName;
 //	}
+	
+	public Reservation(long movieId, String movieTitle, String SeatName) {
+		this(Instant.now().toEpochMilli(), movieId, movieTitle, SeatName);
+	}
+	
+	public void save() throws IOException{
+		FileWriter fw = new FileWriter(file, true);
+		fw.write(this.toFileString() + "\n");
+		fw.close();
+		
+	}
+	
+	private String toFileString() {
+		return String.format("%d,%d,%s,%s", id, movieId, movieTitle, SeatName);
+	}
 
 	public static Reservation findById(String reservationId) {
 		Reservation reservation = null;
